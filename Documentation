@@ -1,0 +1,16 @@
+1. Magic 8 Ball
+  
+  2. What is the purpose of your project? tell about ur project.
+  The purpose for this project is for indecisive people to be able to make choices through this code which answers to yes/no questions.
+  Not only does it accomodate a persons needs through answering yes/no questions but it can also somehow be able to help you have a concrete decision 
+  made by yourself through the advisory comments given by the program. For example you want to ask the question of "Should I wear pink today?" 
+  and the program will then reply with "Very doubtful.", as a result of that response you then decide to try other colors to see if they are any better.
+  The use of this program has it's limits, questions asked should not be any serious questons that can possibly affect others or yourself in any negative way, due to the 
+  responses that can be seemingly influential. Users must use the program responsibly.
+
+  3. How does your program work? Explain how to run your code?
+  To run the code the user shall input a yes/no question. Then the program will select a random response from the list of possible answers, it will then stimulate "thinking"
+  with a short delay using time.sleep(). So it will now print an answer, and the program will continue running until the user types "quit".
+
+  
+  
