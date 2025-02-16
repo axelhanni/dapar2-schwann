@@ -1,0 +1,16 @@
+1. What is the name of your project?
+  - Animal Quiz Game. 
+
+2.  What is the purpose of your project? tell about your project.
+  - The Quiz game asks the player questions about animals. 
+    They have three chances to answer each question you don’t want to take the quiz too difficult.
+    Each correct answer will score a point. At the end of the game, the program will reveal the
+    player’s final score. This project can be eductaional through the way the users are able to 
+    learn certain characteristics of animals to be able to identify them.
+
+3. How does your program work? Explain how to run your code?
+  - This Python program is a simple animal quiz game.  It asks the user a series of animal-related 
+    questions.  For each question, the user gets three tries to guess the correct answer.  The program 
+    keeps track of the user's score and displays it at the end of the game.  The check_guess function 
+    handles checking the user's guess and updating the score. The main part of the program asks the 
+    questions and uses check_guess to evaluate the answers.
