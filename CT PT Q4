@@ -1,0 +1,53 @@
+def kg_to_lbs(kg):
+    return kg * 2.20462
+
+def lbs_to_kg(lbs):
+    return lbs / 2.20462
+
+def cm_to_inches(cm):
+    return cm * 0.393701
+
+def inches_to_cm(inches):
+    return inches / 0.393701
+
+def celsius_to_fahrenheit(c):
+    return (c * 9/5) + 32
+
+def fahrenheit_to_celsius(f):
+    return (f - 32) * 5/9
+
+def unit_converter():
+    while True:
+        print("\nUnit Converter")
+        print("1. Kilograms to Pounds")
+        print("2. Pounds to Kilograms")
+        print("3. Centimeters to Inches")
+        print("4. Inches to Centimeters")
+        print("5. Celsius to Fahrenheit")
+        print("6. Fahrenheit to Celsius")
+        print("7. Exit")
+
+        choice = input("Choose an option: ")
+
+        if choice == '7':
+            print("Exiting...")
+            break
+
+        value = float(input("Enter value: "))
+
+        if choice == '1':
+            print("Result:", kg_to_lbs(value), "lbs")
+        elif choice == '2':
+            print("Result:", lbs_to_kg(value), "kg")
+        elif choice == '3':
+            print("Result:", cm_to_inches(value), "inches")
+        elif choice == '4':
+            print("Result:", inches_to_cm(value), "cm")
+        elif choice == '5':
+            print("Result:", celsius_to_fahrenheit(value), "°F")
+        elif choice == '6':
+            print("Result:", fahrenheit_to_celsius(value), "°C")
+        else:
+            print("Invalid choice. Please try again.")
+
+unit_converter()
