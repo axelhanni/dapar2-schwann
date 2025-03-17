@@ -1,0 +1,130 @@
+# --- Conversion Functions ---
+
+def kg_to_lbs(kg): 
+    return kg * 2.20462
+
+def lbs_to_kg(lbs):
+    return lbs / 2.20462
+
+def cm_to_inches(cm):
+    return cm * 0.393701
+
+def inches_to_cm(inches):
+    return inches / 0.393701
+
+def celsius_to_fahrenheit(c):
+    return (c * 9/5) + 32
+
+def fahrenheit_to_celsius(f):
+    return (f - 32) * 5/9
+
+# --- Console-Based Unit Converter (Original) ---
+
+def unit_converter():
+    while True:
+        print("\nUnit Converter")
+        print("1. Kilograms to Pounds")
+        print("2. Pounds to Kilograms")
+        print("3. Centimeters to Inches")
+        print("4. Inches to Centimeters")
+        print("5. Celsius to Fahrenheit")
+        print("6. Fahrenheit to Celsius")
+        print("7. Exit")
+
+        choice = input("Choose an option: ")
+
+        if choice == '7':
+            print("Exiting...")
+            break
+
+        try:
+            value = float(input("Enter value: "))
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+            continue
+
+        if choice == '1':
+            print("Result:", kg_to_lbs(value), "lbs")
+        elif choice == '2':
+            print("Result:", lbs_to_kg(value), "kg")
+        elif choice == '3':
+            print("Result:", cm_to_inches(value), "inches")
+        elif choice == '4':
+            print("Result:", inches_to_cm(value), "cm")
+        elif choice == '5':
+            print("Result:", celsius_to_fahrenheit(value), "°F")
+        elif choice == '6':
+            print("Result:", fahrenheit_to_celsius(value), "°C")
+        else:
+            print("Invalid choice. Please try again.")
+
+# --- GUI-Based Unit Converter using Tkinter ---
+
+import tkinter as tk  # GUI toolkit
+from tkinter import ttk, messagebox  # Widgets and error dialog
+
+def convert():
+    try:
+        # Get user input from the Entry widget
+        value = float(entry_value.get())
+        conversion = combo.get()  # Get selected conversion type
+
+        # Use appropriate conversion function
+        if conversion == "Kilograms to Pounds":
+            result = f"{kg_to_lbs(value):.2f} lbs"
+        elif conversion == "Pounds to Kilograms":
+            result = f"{lbs_to_kg(value):.2f} kg"
+        elif conversion == "Centimeters to Inches":
+            result = f"{cm_to_inches(value):.2f} inches"
+        elif conversion == "Inches to Centimeters":
+            result = f"{inches_to_cm(value):.2f} cm"
+        elif conversion == "Celsius to Fahrenheit":
+            result = f"{celsius_to_fahrenheit(value):.2f} °F"
+        elif conversion == "Fahrenheit to Celsius":
+            result = f"{fahrenheit_to_celsius(value):.2f} °C"
+        else:
+            result = "Please select a conversion type."
+
+        # Display result in the label
+        label_result.config(text="Result: " + result)
+    except ValueError:
+        # Show error if input is not a valid number
+        messagebox.showerror("Input Error", "Please enter a valid number.")
+
+# Create main window for the GUI app
+app = tk.Tk()
+app.title("Unit Converter")       # Title of the window
+app.geometry("350x250")           # Size of the window
+app.resizable(False, False)       # Disable resizing
+
+# --- Input Section ---
+tk.Label(app, text="Enter value:").pack(pady=5)
+entry_value = tk.Entry(app)       # Text field for user input
+entry_value.pack()
+
+# --- Dropdown for conversion selection ---
+tk.Label(app, text="Choose conversion:").pack(pady=5)
+options = [
+    "Kilograms to Pounds",
+    "Pounds to Kilograms",
+    "Centimeters to Inches",
+    "Inches to Centimeters",
+    "Celsius to Fahrenheit",
+    "Fahrenheit to Celsius"
+]
+combo = ttk.Combobox(app, values=options, state="readonly")
+combo.pack()
+
+# --- Convert Button ---
+btn_convert = tk.Button(app, text="Convert", command=convert)
+btn_convert.pack(pady=10)
+
+# --- Result Display ---
+label_result = tk.Label(app, text="Result: ", font=("Arial", 12))
+label_result.pack(pady=10)
+
+# --- Run Both Console and GUI ---
+if __name__ == "__main__":
+    # You can comment out one of these if you only want one interface
+    # unit_converter()     # <- Uncomment to run the console version
+    app.mainloop()         # <- Runs the GUI version
